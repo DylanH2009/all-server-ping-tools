@@ -13,13 +13,15 @@ echo -------------------------------------------------------------
 echo Type '1' to check a website or '2' to check an I.P. address.
 echo -------------------------------------------------------------
 
-%type% = Enter selection: 
+set type=
+set /p %type% = Enter selection: 
  if %type% = 1 (goto WEBSITECHECK)
  if %type% = 2 (goto IPCHECK)
 
  :WEBSITECHECK
 
-%site% = Enter URL or shortcut:
+set site=
+set /p %site% = Enter URL or shortcut:
 
 REM shortcuts
 
