@@ -25,45 +25,8 @@ set /p %site% = Enter URL or shortcut:
 
 REM shortcuts
 
-if %site% = fb (ping facebook.com | find "TTL=" >nul
-if errorlevel 1 (
-    echo Host is not reachable 
-) else (
-    echo Host available 
-))
-
-if %site% = t (ping twitter.com | find "TTL=" >nul
-if errorlevel 1 (
-    echo Host is not reachable 
-) else (
-    echo Host available 
-))
-
-if %site% = insta (ping instagram.com | find "TTL=" >nul
-if errorlevel 1 (
-    echo Host is not reachable 
-) else (
-    echo Host available 
-))
-
-if %site% = yt (ping youtube.com | find "TTL=" >nul
-if errorlevel 1 (
-    echo Host is not reachable 
-) else (
-    echo Host available 
-))
-
-if %site% = r (ping reddit.com | find "TTL=" >nul
-if errorlevel 1 (
-    echo Host is not reachable 
-) else (
-    echo Host available 
-))
-
-if not %site%==fb if not %site%==t if not %site%==insta if not %site%==yt if not %site%==r (
-    ping %site% | find "TTL=" >nul 
-    if errorlevel 1 (
-    echo Host is not reachable 
-) else (
-    echo Host available 
-))
+if %site% = fb (ping facebook.com)
+if %site% = t (ping twitter.com)
+if %site% = insta (ping instagram.com)
+if %site% = yt (ping youtube.com)
+if %site% = r (ping reddit.com)
