@@ -57,3 +57,11 @@ if errorlevel 1 (
 ) else (
     echo Host available 
 ))
+
+if not %site%==fb if not %site%==t if not %site%==insta if not %site%==yt if not %site%==r (
+    ping %site% | find "TTL=" >nul 
+    if errorlevel 1 (
+    echo Host is not reachable 
+) else (
+    echo Host available 
+))
