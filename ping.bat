@@ -3,11 +3,11 @@
 echo Welcome! This program will check if a website or server is up.
 echo
 echo Shortcuts:
-echo 'f' for facebook.com
-echo 'twitter' for twitter.com
-echo 'instagram' for instagram.com
-echo 'youtube' for youtube.com
-echo 'reddit' for reddit.com 
+echo 'fb' for facebook.com
+echo 't' for twitter.com
+echo 'insta' for instagram.com
+echo 'yt' for youtube.com
+echo 'r' for reddit.com 
 
 echo -------------------------------------------------------------
 echo Type '1' to check a website or '2' to check an I.P. address.
@@ -21,10 +21,39 @@ echo -------------------------------------------------------------
 
 %site% = Enter URL or shortcut:
 
-if %site% = f (ping facebook.com | find "TTL=" >nul
+REM shortcuts
+
+if %site% = fb (ping facebook.com | find "TTL=" >nul
 if errorlevel 1 (
     echo Host is not reachable 
 ) else (
     echo Host available 
-)
-)
+))
+
+if %site% = t (ping twitter.com | find "TTL=" >nul
+if errorlevel 1 (
+    echo Host is not reachable 
+) else (
+    echo Host available 
+))
+
+if %site% = insta (ping instagram.com | find "TTL=" >nul
+if errorlevel 1 (
+    echo Host is not reachable 
+) else (
+    echo Host available 
+))
+
+if %site% = yt (ping youtube.com | find "TTL=" >nul
+if errorlevel 1 (
+    echo Host is not reachable 
+) else (
+    echo Host available 
+))
+
+if %site% = r (ping reddit.com | find "TTL=" >nul
+if errorlevel 1 (
+    echo Host is not reachable 
+) else (
+    echo Host available 
+))
