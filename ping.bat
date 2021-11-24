@@ -15,8 +15,10 @@ echo -------------------------------------------------------------
 
 set type=
 set /p %type% = Enter selection: 
- if %type% = 1 (goto WEBSITECHECK)
- if %type% = 2 (goto IPCHECK)
+ if %type% = 1 (GOTO WEBSITECHECK)
+ if %type% = 2 (GOTO IPCHECK)
+
+ pause
 
  :WEBSITECHECK
 
@@ -30,3 +32,15 @@ if %site% = t (ping twitter.com)
 if %site% = insta (ping instagram.com)
 if %site% = yt (ping youtube.com)
 if %site% = r (ping reddit.com)
+
+if %site% !==! fb (GOTO OTHERSITE)
+if %site% !==! t (GOTO OTHERSITE)
+if %site% !==! insta (GOTO OTHERSITE)
+if %site% !==! yt (GOTO OTHERSITE)
+if %site% !==! r (GOTO OTHERSITE)
+
+:OTHERSITE
+
+ping %site%
+
+pause
