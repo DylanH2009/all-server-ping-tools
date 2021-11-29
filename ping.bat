@@ -1,46 +1,25 @@
-@echo off
+@echo off 
 
-echo Welcome! This program will check if a website or server is up.
-echo
-echo Shortcuts:
-echo 'fb' for facebook.com
-echo 't' for twitter.com
-echo 'insta' for instagram.com
-echo 'yt' for youtube.com
-echo 'r' for reddit.com 
+:START
 
-echo -------------------------------------------------------------
-echo Type '1' to check a website or '2' to check an I.P. address.
-echo -------------------------------------------------------------
+echo Enter what you would like to test. 
+echo ----------------------------------
+echo 1 = Website
+echo 2 = I.P. Address
+echo ----------------------------------
+set "select=Enter selection: "
 
-set type=
-set /p %type% = Enter selection: 
- if %type% = 1 GOTO WEBSITECHECK
- if %type% = 2 GOTO IPCHECK
+if %select% EQ "1" GOTO WEBCHECK
+if %select% EQ "2" GOTO IPCHECK
+if %select% NEQ "1" "2" GOTO START
 
- pause
+:WEBCHECK
 
- :WEBSITECHECK
-
-set site=
-set /p %site% = Enter URL or shortcut:
-
-REM shortcuts
-
-if %site% = fb ping facebook.com
-if %site% = t ping twitter.com
-if %site% = insta ping instagram.com
-if %site% = yt ping youtube.com
-if %site% = r ping reddit.com
-
-if %site% !==! fb GOTO OTHERSITE
-if %site% !==! t GOTO OTHERSITE
-if %site% !==! insta GOTO OTHERSITE
-if %site% !==! yt GOTO OTHERSITE
-if %site% !==! r GOTO OTHERSITE
-
-:OTHERSITE
-
-ping %site%
-
-pause
+echo Enter the url you would like to check:
+set "url=URL = "
+ping %url% | find "TTL=" >nul
+if errorlevel 1 (
+    echo Site is offline
+) else (
+    echo Site is online
+)
